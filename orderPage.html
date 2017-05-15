@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Infy Online Order</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="style.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+<body align="center">
+<div class="container">
+<div> <img src="http://placehold.it/650x150"></div>
+		<hr>
+<div id ="bill"></div>
+</div>
+<footer>Infosys Limited &copy; 2017</footer>
+<script type="text/javascript">
+	 function orders(){
+		this.ordid= Math.round(Math.random()*100);
+		this.orddate= new Date();
+	}
+	var od= new orders();
+	document.getElementById("bill").innerHTML ="Order Placed successfully on "+od.orddate.getDate()+"-"+od.orddate.getFullYear()+" with orderid= "+od.ordid;
+</script>
+</body>
+</html>
