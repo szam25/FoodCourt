@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Infy Online Food Court</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="style.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+<body align="center">
+<div class="container">
+<div> <img src="http://placehold.it/650x150"></div>
+		<hr>
+			<div class="row text-center">
+			<h1> Welcome to Infy Gourmet</h1>
+			<div id = "text"></div>
+			<hr>
+			<div class="row underline">
+			<h2> Place Order</h2>
+			</div>
+			<br>
+			<div class="row"> 
+			<form name="registerForm" method="get" onsubmit="subfunc()" class="form-horizontal">
+			Visitor Name :
+						<input type="text" id="name" autofocus required="required" placeholder="Type Your Name" pattern="[a-zA-Z]+" oninvalid="setCustomValidity('Special characters and numbers are not allowed in user name');" onblur="setCustomValidity('')">
+					<br>
+			Number of members :
+						<input type="number" id="number" max="99" required="required">
+				<br>	
+			Contact No. :
+						<input type="text" required="required" pattern="[6-9]{1}[0-9]{9}" placeholder="Type Your Contact Number">
+				<br>
+			Email :
+						<input type="email" required="required">
+				<br>	
+			Type of Food:                   
+				<input type="checkbox" name="type" id="si" value="South" checked>South Indian
+                <input type="checkbox" name="type" id="ni" value="North">North Indian
+                <input type="checkbox" name="type" id="ni" value="Chinese">Chinese
+                <input type="checkbox" name="type" id="ni" value="Western">Western<br>
+        Room Status: 
+        		<input type="radio" name="Rstatus" value="AC" checked>AC
+        		<input type="radio" name="Rstatus" value="Non-AC">Non-AC<br>
+        Venue Preference: 
+        		<select>
+                    <option value="" selected disabled>--SELECT--</option>
+                    <option value="1">Arena</option>
+                    <option value="2">Magna</option>
+                    <option value="3">Oasis</option>
+                    <option value="4">Fiesta</option>
+                </select><br>
+                <br>
+               
+        <input type="reset" value="Reset">
+        <input type="submit" value="PlaceOrder">
+        <br>
+        <br>
+        <div id ="fid"></div>
+        <div id="rid"></div>
+        <br>
+        <a href="iceCream.html" style="color: blue">Click here to locate the Ice cream Parlours</a>
+        <br>
+			</form>
+			</div>
+			
+
+	<footer>Infosys Limited &copy; 2017</footer>
+</div>
+</body>
+	<script type="text/javascript">
+				function subfunc(){
+					var confrm= confirm("If all details entered are correct, press ok to continue");
+					if (confrm){
+						window.open("orderPage.html")
+					}
+				}
+				var json_obj ='{"headOffice":"Bangalore","contactNo":"8811223311"}';
+				var office= JSON.parse(json_obj);
+				document.getElementById("text").innerHTML ="Our head office is in "+office.headOffice+" And Contact Us on "+office.contactNo;
+				food= document.registerForm.type[0].value;
+				document.getElementById("fid").innerHTML ="The Default value of Food Type is: "+food;
+				room= document.registerForm.Rstatus[0].value;
+				document.getElementById("rid").innerHTML ="The default value of Room Status is: "+room;
+			</script>
+</html>
